@@ -14,7 +14,6 @@
         "product",
     ],
     "data": [
-        "views/product_category.xml",
+        # "views/product_category.xml",
     ],
-    'installable': False,
 }
