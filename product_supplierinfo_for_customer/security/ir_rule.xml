@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="product_supplierinfo_security_rule" model="ir.rule">
+            <field name="name">supplierinfo: multi-company</field>
+            <field name="model_id" ref="model_product_supplierinfo"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids),]</field>
+        </record>
+
+        <record id="product_customerinfo_security_rule" model="ir.rule">
+            <field name="name">customerinfo: multi-company</field>
+            <field name="model_id" ref="model_product_customerinfo"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids),]</field>
+        </record>
+    </data>
+</odoo>

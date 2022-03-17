@@ -14,6 +14,7 @@
     "depends": ["product", "sales_team"],
     "data": [
         "security/ir.model.access.csv",
+        "security/ir_rule.xml",
         "views/product_pricelist_views.xml",
         "views/product_view.xml",
     ],
