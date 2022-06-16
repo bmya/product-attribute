@@ -11,6 +11,7 @@ class ProductProduct(models.Model):
     _inherit = "product.product"
 
     customer_ids = fields.One2many(related='product_tmpl_id.customer_ids', readonly=False)
+    variant_customer_ids = fields.One2many(related='product_tmpl_id.variant_customer_ids', readonly=False)
 
     def name_get(self):
         res = super(ProductProduct, self.with_context(customerinfo=True)).name_get()
