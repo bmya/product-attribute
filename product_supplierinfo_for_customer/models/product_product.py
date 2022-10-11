@@ -4,11 +4,14 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 import datetime
 
-from odoo import api, models
+from odoo import api, models, fields
 
 
 class ProductProduct(models.Model):
     _inherit = "product.product"
+
+    customer_ids = fields.One2many(related='product_tmpl_id.customer_ids', readonly=False)
+    variant_customer_ids = fields.One2many(related='product_tmpl_id.variant_customer_ids', readonly=False)
 
     def name_get(self):
         res = super(ProductProduct, self.with_context(customerinfo=True)).name_get()
@@ -122,7 +125,7 @@ class ProductProduct(models.Model):
     def _select_customerinfo(
         self, partner=False, _quantity=0.0, _date=None, _uom_id=False, params=False
     ):
-        """Customer version of the standard `_select_seller`. """
+        """Customer version of the standard `_select_seller`."""
         # TODO: For now it is just the function name with same arguments, but
         #  can be changed in future migrations to be more in line Odoo
         #  standard way to select supplierinfo's.
